@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 这里注入service层的属性到action层  <property name="commonService"> name的属性是BaseAction层中用service层接口定义的属性
+	<ref bean="commonServices"/> 这里是service层（service-service.xml文件的bean的Id）
+	-->
+	<bean id="actionTemplate" abstract="true" scope="prototype" lazy-init="true">
+		<property name="commonService">
+			<ref bean="commonServices"/>
+		</property>
+	</bean>
+	
+ 	<bean name="BaseHelper" class="com.jixie.system.helper.BaseHelper" parent="actionTemplate" scope="singleton">
+     	<property name="commonService">
+			<ref bean="commonServices"/>
+		</property>
+    </bean> 
+
+<!-- 这里导入个人的action配置 <import resource="action-services-abc.xml"/>-->
+
+ 	 <import resource="action-services-zhihua.xml"/> 
+	 <import resource="action-services-zhihua.xml"/>
+	<import resource="action-services-yiwei.xml"/>
+<!--  	<import resource="action-services-zhiyu.xml"/> -->
+	<import resource="action-services-huiqiang.xml"/>
+</beans>

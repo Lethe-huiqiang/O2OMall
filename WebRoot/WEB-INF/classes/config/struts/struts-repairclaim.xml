@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="repairclaim"  extends="jixie-default">
+		<!-- 报修模块的登记action -->
+		<!-- repairclaim_*中的*号表示请求的action中的方法，即method={1}，表示的方法 -->
+		<action name="repairclaim_*" class="RepairClaimAction" method="{1}">
+			<!-- 跳转到用户的登陆页面 -->
+			<result name="login">/frontStage/users/jsp/login.jsp
+			</result>
+			
+			<result name="show">/frontStage/repairclaim/jsp/showusersclaim.jsp
+			</result>
+			
+			<result name="showmem">/frontStage/repairclaim/mana/menu1/showmemclaim.jsp
+			</result>
+			
+<!-- 		<result name="delete">/frontStage/repairclaim/jsp/showusersclaim.jsp
+			</result> -->
+			<!-- 跳转到用户的重新填写页面 -->
+<!-- 			<result name="userinfoUI">/frontStage/jixieweb/repairclaim.jsp 
+			</result>-->
+			
+		</action>
+	
+	</package>
+	
+</struts>

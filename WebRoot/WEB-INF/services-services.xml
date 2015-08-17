@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+						http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<bean id="transactionManagerment" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManagerment"></property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*Dao</value>
+				<value>*Services</value>
+				<value>*Service</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+
+<!-- 这里注入dao层  <property name="commonDao" ref="commonDao"/>
+	 name是baseservice.java文件中用dao层接口定义的属性
+	 ref="commonDao" 这里是dao-service.xml文件的bean的Id-->
+	 
+	<bean id="servicesTemplate" abstract="true" lazy-init="true">
+		<property name="commonDao" ref="commonDao"/>
+	</bean>
+
+<!-- 这里是service层实现类的注入 -->
+	<bean id="commonServices" class="com.gzbugu.common.commonService.impl.CommonServiceImpl" parent="servicesTemplate"></bean>
+	
+	<!-- 配置Service实现类，2014.7.23zhihua -->
+ 	<bean id="usersService" class="com.jixie.service.impl.users.UsersServiceImpl" parent="servicesTemplate" />
+	 <!-- 配置Service实现类， -->
+<!-- 	<bean id="usersInfoService" class="com.jixie.service.impl.usersinfo.UsersInfoServiceImpl" parent="servicesTemplate" /> -->
+	
+	<!-- 配置Service实现类，2014.8.08yiwei -->
+ 	<bean id="repairClaimService" class="com.jixie.service.impl.repairclaim.RepairClaimServiceImpl" parent="servicesTemplate" />
+	
+	<!-- 配置Service实现类，2014.8.11yiwei -->
+ 	<bean id="repsummaryService" class="com.jixie.service.impl.repsummary.RepsummaryServiceImpl" parent="servicesTemplate" />
+	
+	<!-- 配置Service实现类，2014.8.23yiwei -->
+	 <bean id="repairManagementService" class="com.jixie.service.impl.repairclaim.RepairManagementServiceImpl" parent="servicesTemplate" />
+    <bean id="CommodityService" class="com.jixie.service.impl.commodity.CommodityServiceImpl" parent="servicesTemplate" >
+    	<property name="compassTemplate">
+	        <ref bean="compassTemplate"/>
+	   </property>
+    </bean>
+    <bean id="SuppliersService" class="com.jixie.service.impl.suppliers.SuppliersServiceImpl" parent="servicesTemplate" />
+    <bean id="OrderService" class="com.jixie.service.impl.order.OrderServiceImpl" parent="servicesTemplate" />
+    <bean id="ShoppingCartService" class="com.jixie.service.impl.shoppingcart.ShoppingCartServiceImpl" parent="servicesTemplate" />
+    <bean id="FavoriteService" class="com.jixie.service.impl.favorite.FavoriteServiceImpl" parent="servicesTemplate" />
+    <bean id="CommodityManageService" class="com.jixie.service.impl.commodityManage.CommodityManageServiceImpl" parent="servicesTemplate" />
+    <bean id="OrderManageService" class="com.jixie.service.impl.order.OrderManageServiceImpl" parent="servicesTemplate" />
+     <bean id="ArticleManageService" class="com.jixie.service.impl.articleManage.ArticleManageServiceImpl" parent="servicesTemplate" />
+</beans>

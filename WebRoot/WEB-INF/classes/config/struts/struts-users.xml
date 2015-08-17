@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="users-front" extends="jixie-front" >
+		<action name="users_login" class="UsersAction" method="login" />
+		<action name="users_loginUI" class="UsersAction" method="loginUI" >
+			<!-- 跳转到用户的登陆页面 -->
+			<result name="login">/frontStage/users/jsp/login.jsp
+			</result>
+		</action>
+		<action name="users_regist" class="UsersAction" method="regist" />
+		<action name="users_registUI" class="UsersAction" method="registUI" >
+			<!-- 跳转到用户的注册页面 -->
+			<result name="registUI">/frontStage/users/jsp/regist.jsp
+			</result>
+		</action>
+		<action name="activate" class="UsersAction" method="activate">
+			<result name="activateResult">/frontStage/users/jsp/activateResult.jsp</result>
+		</action>
+		<action name="users_checkName" class="UsersAction" method="checkName" />
+	</package>
+
+	<package name="users" extends="jixie-publish">
+		<!-- 会员模块的注册action -->
+		<!-- user_*中的*号表示请求的action中的方法，即method={1}，表示的方法 -->
+		<action name="users_*" class="UsersAction" method="{1}">
+			<!-- 完善用户个人信息，action间跳转 -->
+			<result name="usersInfoGet" type="redirectAction">users_usersInfoUI</result>
+			<!-- 跳转到用户信息的页面 -->
+			<result name="usersInfoUI" >/frontStage/users/jsp/usersInfoUI.jsp
+			</result>
+			<result name="picUpload">/frontStage/user/jsp/UserpicUpload.jsp
+			</result>
+			<result name="users">/frontStage/man/jsp/repiarmanagement.jsp
+			</result>
+			<result name="logouts">/frontStage/users/jsp/login.jsp
+			</result>
+			<!-- 管理员推出 -->
+			<result name="adlogout">/frontStage/repairclaim/mana/login.html
+			</result>
+		</action>
+	</package>
+	
+	
+	
+	<package name="message" extends="jixie-default">
+		<action name="message_*" class="MessageAction" method="{1}" >
+			<result name="readMessageList">/frontStage/message/readMessageList.jsp</result>
+			<result name="readMessageContent">/frontStage/message/readMessageContent.jsp</result>
+			<result name="createMessage">/frontStage/message/createMessage.jsp</result>
+		</action>
+	</package>
+	
+	<package name="forgetPass" extends="struts-default">
+		<action name="change" class="ForgetPassAction" method="changePassUI">
+			<result name="uselessUI">/frontStage/users/jsp/requestUseless.jsp</result>
+			<result name="changePassUI">/frontStage/users/jsp/forget_pas_reset.jsp</result>
+		</action>
+		<action name="sendPsEmail" class="ForgetPassAction" method="sendPsEmail">
+			<result name="uselessUI">/frontStage/users/jsp/requestUseless.jsp</result>
+			<result name="forgetPass">/frontStage/users/jsp/forget_pass.jsp</result>
+		</action>
+		<action name="changePass" class="ForgetPassAction" method="changePass">
+			<result name="uselessUI">/frontStage/users/jsp/requestUseless.jsp</result>
+		</action>
+	</package>
+</struts>

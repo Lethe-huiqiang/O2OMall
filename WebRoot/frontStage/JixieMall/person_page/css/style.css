@@ -1,0 +1,88 @@
+@charset "utf-8";
+	.lift {
+	background-color:#fff;
+	font-size:12px;
+	width:79px;
+	text-align:center;
+	position:fixed;
+	right:5px;
+	top:10%;
+	z-index:110;
+	visibility:hidden
+}
+.lift a {
+	display:block;
+	text-decoration:none;
+	border:1px solid #e7e7e7;
+	border-bottom:0;
+	line-height:25px;
+	color:#666;
+	clear:left
+}
+.lift a:hover {
+	background-color:#e5374d;
+	color:#fff
+}
+.lift a:hover i {
+	border-color:#fff
+}
+.lift a i {
+	font-size:12px;
+	padding:0;
+	background:transparent url(ico_lift_go.png) 1px 0 no-repeat;
+	display:inline-block;
+	width:8px;
+	height:16px;
+	vertical-align:middle
+}
+.lift a:hover i {
+	background:transparent url(ico_lift_go.png) 1px -16px no-repeat
+}
+.lift .lift-hd {
+	background-color:#444;
+	border-color:#444;
+	line-height:28px;
+	height:28px;
+	color:#fff
+}
+.lift .lift-hd:hover {
+	border-color:#e5374d
+}
+.lift .lift-hd i {
+	background:transparent url(ico_lift_menu2.png) 0 0 no-repeat;
+	margin-top:10px;
+	margin-left:10px;
+	float:left;
+	width:12px;
+	height:10px
+}
+.lift .lift-hd:hover i {
+	background:transparent url(ico_lift_menu1.png) 0 0 no-repeat
+}
+.lift .qrcode {
+	color:#999;
+	padding:7px 7px 2px;
+	line-height:15px
+}
+.lift .qrcode img {
+	width:100%;
+	border:2px solid #33363d;
+	margin-left:-2px;
+	margin-top:-2px
+}
+.lift .qrcode:hover {
+	background-color:#fff;
+	color:#999
+}
+.lift .backtop {
+	background-color:#666;
+	border-color:#666;
+	height:23px;
+	color:#fff;
+	background:transparent url(ico_top2.png) 0 0 no-repeat;
+	width:77px
+}
+.lift .backtop:hover {
+	border-color:#e5374d;
+	background:transparent url(ico_top1.png) 0 0 no-repeat
+}

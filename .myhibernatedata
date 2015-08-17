@@ -1,0 +1,24 @@
+#MyEclipse Hibernate Properties
+#Tue Mar 17 23:09:58 CST 2015
+sessionFactoryName=com.jixie.sessionFactory.HibernateSessionFactory
+genBasicCompId=false
+profile=
+daoSFId=
+version=3.3
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+libInstallFolder=<no jars/zips in selected libraries>
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=/webjixie/hibernate.reveng.xml
+configFile=/webjixie/src/hibernate.cfg.xml
+createConfigFile=false
+addLibs2Classpath=true

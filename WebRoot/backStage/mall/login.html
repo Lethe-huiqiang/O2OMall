@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<html>
+<head>
+<title>商城后台管理登录</title>
+<link rel="stylesheet" type="text/css" href="css/Login_style.css" />
+<script type="text/javascript" src="js/Login_javascript.js"></script>
+<script type="text/javascript" src="/webjixie/frontStage/repair/mana/js/jquery-1.4.4.min.js"></script>
+
+<script type="text/javascript">
+	function adlogin(){
+		$.ajax({
+			url:'commodityManage_commodityManageLogin.action',
+			data:{'users.password':$('#password').val(),'users.email':$('#loginEmail').val()},
+			type:'post',
+			cache:false,
+			success:function(data){
+				if(data=="success"){
+					location.href = "index.jsp";
+				}
+				else if(data=="false"){
+					alert('密码帐号错误,或没有权限,或未审核，或审核不通过');
+				}
+			}
+		});
+	}
+</script>
+</head>
+<body>
+<h2 align="center">后台管理登录</h2>
+<div class="login_frame"></div>
+<div class="LoginWindow">
+  <div>
+    <form method="post" action="" onsubmit="return user_input()" class="login">
+    <p>
+      <label for="login">帐号:</label>
+      <input type="text" name="loginEmail" id="loginEmail"/>
+    </p>
+
+    <p>
+      <label for="password">密码:</label>
+      <input type="password" name="password" id="password"/>
+    </p>
+
+    <p class="login-submit">
+      <button type="button" class="login-button" onclick="adlogin();">Login</button>
+    </p>
+
+    </form>
+  </div>
+</div>
+
+<div id="timeArea"><script> LoadBlogParts();</script></div>
+<br /><br /><br />
+<div style=" width:600px;margin:0 auto; text-align:center; font-size:12px;">
+<p></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+		<!-- 配置RepairClaimAction -->
+     <bean name="RepairClaimAction" class="com.jixie.action.repair.RepairClaimAction" parent="actionTemplate" scope="prototype">
+     	<property name="repairClaimService">
+     		<ref bean="repairClaimService" />
+     	</property>
+     </bean>
+     	<!-- 配置RepairClaimAction -->	
+     <bean name="RepairManagementAction" class="com.jixie.action.repair.RepairManagementAction" parent="actionTemplate" scope="prototype">
+     	<property name="repairManagementService">
+     		<ref bean="repairManagementService" />
+     	</property>
+     </bean>
+    	 <!-- 配置ReturnTreeAction -->	
+     <bean name="ReturnTreeAction" class="com.jixie.action.ReturnTreeAction" parent="actionTemplate" scope="prototype">
+     	
+     </bean>
+         
+     <!-- 配置RepsummaryAction -->	
+     <bean name="RepsummaryAction" class="com.jixie.action.repsummary.RepsummaryAction" parent="actionTemplate" scope="prototype">
+     	<property name="repsummaryService">
+     		<ref bean="repsummaryService" />
+     	</property>
+     </bean>
+     
+      <!-- 配置CommentAction -->	
+     <bean name="CommentAction" class="com.jixie.action.repsummary.CommentAction" parent="actionTemplate" scope="prototype">
+     	
+     </bean>
+     
+     <bean name="repairManagementHelper" class="com.jixie.action.repair.RepairManagementHelper" parent="actionTemplate" factory-method="createRepairManagementHelper">
+		
+     </bean>
+</beans>

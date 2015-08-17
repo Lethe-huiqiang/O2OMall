@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="commodity" extends="struts-default" >
+		<action name="commodity_*" class="CommodityAction" method="{1}">
+			<result name="addSUCCESS">/backStage/mall/mallBackStageIndex.jsp</result>
+		    <result name="showTenCommodity">/frontStage/JixieMall/index.jsp</result>
+		</action>
+		
+		<action name="commoditySearch_*" class="CommoditySearchAction" method="{1}">			
+		    <result name="commoditydetail">/frontStage/JixieMall/commodity_detail/commodity_detail.jsp</result>
+		    <result name="searchResult">/frontStage/JixieMall/search_result/search_result.jsp </result>
+		    <result name="search">/frontStage/JixieMall/search_result/searchTest.jsp </result>
+		   
+		</action>
+		
+	</package>
+	<package name="shoppingcart" extends="jixie-default" >
+	     <action name="shoppingcart_*" class="ShoppingCartAction" method="{1}">			
+		    <result name="addToShoppingCart">/frontStage/JixieMall/shoppingcart/shoppingcart.jsp</result>	
+		    <result name="myShoppingCart">/frontStage/JixieMall/shoppingcart/shoppingcart.jsp</result>	    
+		</action>
+		<action name="order_*" class="OrderAction" method="{1}">			
+		    <result name="createOrder">/frontStage/JixieMall/pay/codordersuccess.jsp</result>	
+		    <result name="showMyOrder">/frontStage/JixieMall/person_page/person_page.jsp</result>	   
+		</action>
+		<action name="favorite_*" class="FavoriteAction" method="{1}">			
+		       <result name="addToFavorite">/frontStage/JixieMall/commodity_detail/commodity_detail.jsp</result>
+		        <result name="showFavorite">/frontStage/JixieMall/person_page/personpage.jsp</result>
+		         <result name="deleteFavorite">/frontStage/JixieMall/person_page/personpage.jsp</result>
+		          <result name="deleteAllFavorite">/frontStage/JixieMall/person_page/personpage.jsp</result>
+		</action>
+		<action name="userCenter_*" class="UserCenterAction" method="{1}">	
+		
+		</action>
+	</package>
+	
+</struts>

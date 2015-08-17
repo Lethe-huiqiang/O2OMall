@@ -1,0 +1,39 @@
+@charset "utf-8";
+*{margin:0; padding:0;}
+html{ background:#FFFFFF; }
+
+#content{ width:auto; margin:0px auto;}
+
+#nav { width:140px; line-height: 38px;  list-style-type: none; text-align:left; padding-left:150px; padding-top:30px; float:left;font-weight:bold;}
+#nav a { width: 170px;  display: block; height:38px;}
+#nav li { background:url(../images/repair-do_06.gif); border-bottom:#FFF 1px solid; float:left; text-align:center;}
+#nav a:link  { color:#666; text-decoration:none;}
+#nav a:visited  { color:#666;text-decoration:none;}
+#nav a:hover  { color:#FFF;text-decoration:none;font-weight:bold;}
+
+#nav li ul { list-style:none; text-align:left; display:none;}
+#nav li ul li{  background: #EBEBEB; display:block;}
+
+#nav li ul a:link  { color:#00CCFF text-decoration:none;}
+#nav li ul a:visited  { color:#00CCFF;text-decoration:none;}
+#nav li ul a:hover { color:#00CCFF; text-decoration:none; font-weight:normal; background:#00FFFF; }
+
+#nav li:hover ul { left: auto;}
+#nav li.sfhover ul { left: auto;}
+
+#right{float:left;  margin-top:30px; width:700px; height:auto;border:1px solid #00CCFF; margin-left:70px;}
+#right_form{padding-left:20px;}
+  
+#main{ height:250px; width:auto;}
+#right_chart{ background:#facd89; font-size:36px;}
+
+
+  #menber{ color:#0066FF; width:inherit; height:inherit; margin-top:20px; margin-left:200px; float:left; 
+      font-family:Verdana, Arial, Helvetica, sans-serif; font-size:24px;}
+  #split{ clear:left;background:url(images/repair-do_03.gif) repeat-x; height:15px;}
+#content{height:900px;}
+
+#tijiao{width:100px;height:40px;}
+textarea{width:500px;height:200px;}
+
+

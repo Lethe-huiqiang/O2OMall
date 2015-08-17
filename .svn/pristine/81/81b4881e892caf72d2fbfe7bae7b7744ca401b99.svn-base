@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<package name="commodityManage" extends="struts-default">
+	
+	  <action name="commodityManage_*" class="CommodityManageAction" method="{1}" >	
+		</action>
+		
+	  <action name="orderManage_*" class="OrderManageAction" method="{1}" >	
+		</action>
+	  <action name="articleManage_*" class="ArticleManageAction" method="{1}" >	
+	  </action>
+	</package>
+</struts>

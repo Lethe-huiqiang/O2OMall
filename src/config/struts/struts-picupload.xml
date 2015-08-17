@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="picupload" extends="struts-default">
+
+		<!-- 会员模块的action -->
+		<!-- userinfo_*中的*号表示请求的action中的方法，即method={1}，表示的方法 -->
+		<action name="picupload_*" class="PicUploadAction" method="{1}">
+
+	 		<!-- 跳转到用户信息的页面 -->
+	 		<result name="userinfomain">/frontStage/user/jsp/userinfomain.jsp
+			</result>     
+
+			
+		</action>
+	</package>
+</struts>

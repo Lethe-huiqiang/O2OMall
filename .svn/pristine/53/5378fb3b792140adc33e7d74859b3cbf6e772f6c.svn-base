@@ -1,0 +1,90 @@
+package com.jixie.action.mall;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import com.jixie.action.BaseAction;
+import com.jixie.bean.Commodity;
+import com.jixie.bean.EasyUIPageModel;
+import com.jixie.service.commodityManage.CommodityManageService;
+import com.jixie.utils.MallManageUtil;
+
+public class CommodityManageAction extends BaseAction {
+
+	 
+	
+	private CommodityManageService commodityManageService;
+	
+	public void displayCommodityList(){
+		Commodity commodity=new Commodity();
+		HttpServletRequest request=ServletActionContext.getRequest();
+		HttpServletResponse response=ServletActionContext.getResponse();
+		String page=request.getParameter("page");//页码
+		String rows=request.getParameter("rows");//每页记录数
+		String searchName=request.getParameter("searchname");//搜索key
+		if(searchName==null){
+			searchName="";
+		}
+		commodity.setName(searchName);
+		EasyUIPageModel pageModel=new EasyUIPageModel(Integer.parseInt(page),Integer.parseInt(rows));
+		JSONArray jsonArray = null;
+		try {
+			JSONObject result=new JSONObject();
+			int total=commodityManageService.commodityCount(commodity);//总记录数
+			//转换成json数组
+			jsonArray = MallManageUtil.formatListToJsonArray(commodityManageService.displayCommodityList(pageModel,commodity));
+			result.put("rows", jsonArray);
+			result.put("total", total);
+			MallManageUtil.write(response, result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	/**
+	 * @param delCommodityIds
+	 * 删除商品
+	 */
+	public void delectCommodity(){
+		Commodity commodity=new Commodity();
+		HttpServletRequest request=ServletActionContext.getRequest();
+		HttpServletResponse response=ServletActionContext.getResponse();
+		String ids=request.getParameter("ids");//要删除的商品ID字符串
+		String delnums=request.getParameter("delnums");//前台选中要删除的商品个数
+		String[] Ids=ids.split(",");//转换为数组
+		System.out.println(ids);
+		//EasyUIPageModel pageModel=new EasyUIPageModel(Integer.parseInt(page),Integer.parseInt(rows));
+		try {
+			JSONObject result=new JSONObject();
+			commodityManageService.deleteCommodity(Ids,null);//删除商品	
+			//if(deltotal>0){
+				result.put("success", "true");
+				result.put("deltotal", delnums);	
+				//}else{}			
+				//result.put("errorMsg", "删除失败!");		
+			MallManageUtil.write(response, result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+
+	public CommodityManageService getCommodityManageService() {
+		return commodityManageService;
+	}
+
+
+	public void setCommodityManageService(
+			CommodityManageService commodityManageService) {
+		this.commodityManageService = commodityManageService;
+	}
+	
+}

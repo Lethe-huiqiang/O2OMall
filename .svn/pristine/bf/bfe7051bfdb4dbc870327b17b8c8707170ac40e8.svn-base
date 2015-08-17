@@ -1,0 +1,5 @@
+mailServerHost=smtp.yeah.net
+mailServerPort=25
+userName=ca_gdut@yeah.net
+password=gdutjixie667347
+fromAddress=ca_gdut@yeah.net

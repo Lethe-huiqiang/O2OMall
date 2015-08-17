@@ -1,0 +1,383 @@
+@charset "utf-8";
+*{margin: 0; padding: 0;}
+a{color:#00007F;text-decoration:none;}
+.content{
+	height: 556px;
+	width: 805px;
+	margin:0 auto;
+}
+.content-left{
+	 float: left;
+     height: 580px;
+     width: 150px;
+     background-color:#BFE5FD;
+}  
+.userPicture-border{
+    width:95px;
+    height:95px;
+    border-radius:50px; 
+    background-color: white;
+    text-align:center ;
+    margin:0px auto;
+    margin-top: 20px;
+}    
+.userPicture{
+     width:85px;
+     height:85px;
+     border-radius:50px; 
+     margin:0px auto;
+     position: relative;
+     top:5%;    
+}
+.menu{
+	overflow:hidden;
+	width: auto;
+}
+.menu li.level1 a{
+    display: block;
+    height: 20px;
+    line-height: 24px;
+    color: #5893B7;
+	text-indent: 14px;
+/*	border-top: 1px solid #C4D5DF;*/
+	margin-top: 5px;
+	padding-top: 5px;
+	font-size: 14px;
+}
+.menu li.level1 img{
+   display: block;
+   position: relative;
+   left: 80px;
+   bottom: 28px;
+}
+.menu li.level1 a:hover{text-decoration:none;}
+.menu li.level1 a.current{background:#B1D7EF;}
+.menu li.level1 a i{  
+	display: block;
+	width: 14px;
+	height: 14px;
+	float: left;
+	margin: 6px -11px 0px 15px;
+	
+}
+.icon-user{
+	background-image:url("/jixieweb/frontStage/JixieMall/person_page/images/icon-user.png");
+}
+.icon-calendar{
+	background-image:url("/jixieweb/frontStage/JixieMall/person_page/images/icon-calendar.png");
+}
+.icon-list-alt{
+	background-image:url("/jixieweb/frontStage/JixieMall/person_page/images/icon-list-alt.png");
+}
+.icon-comment{
+	background-image:url("/jixieweb/frontStage/JixieMall/person_page/images/icon-comment.png");
+}
+.icon-nopay{
+	background-image:url("/jixieweb/frontStage/JixieMall/person_page/images/icon-nopay.png");
+}
+.icon-favorite{
+	background-image:url("/jixieweb/frontStage/JixieMall/person_page/images/icon-favorite.png");
+}
+.icon-setting{
+	background-image:url("/jixieweb/frontStage/JixieMall/person_page/images/icon-setting.png");
+}
+.icon-safe{
+	background-image:url("/jixieweb/frontStage/JixieMall/person_page/images/icon-safe.png");
+}
+
+
+.order-ul{margin-left: 20px;float: right;}
+.order-ul ul{list-style: none;}
+.order-ul li{float: left; line-height: 33px; color: #A5A5A5; margin:0 6px;}
+.order-ul li a{color:#A5A5A5;font-size: 15px; text-decoration: none;}
+.order-ul li a:hover{text-decoration:underline; }
+.divider {
+	height:1px;
+	margin:8px 1px;
+	overflow:hidden;
+	background-color:#e5e5e5;
+	border-bottom:1px solid #fff;
+	*width:100%;
+	*margin:-5px 0 5px
+}
+ .nav-header {
+	display:block;
+	padding:3px 15px;
+	font-size:18px;
+	font-weight:bold;
+	line-height:18px;
+	color:#999;
+	text-shadow:0 1px 0 rgba(255,255,255,0.5);
+	text-transform:uppercase
+}
+.nav li+.nav-header {
+	margin-top:9px
+}
+
+.content-right{
+     width: 640px;
+     float: right;
+     margin:0px;
+     border: 3pt groove #F5F5F5;
+     
+}
+.myorder{
+	float: right;
+	width: 640px;
+	height: auto;
+	padding-bottom: 10px;
+
+}
+.title{
+	height: 50px;
+	width: 100%;
+	border-bottom: 2pt solid #F5F5F5;
+
+}
+.title h2{
+	float: left;
+	font:  24px/2 微软雅黑 ;
+	padding-left: 20px;
+    color:  #01AFFE;
+}
+.order-header{	
+	float: right;
+	width: 600px;
+	background-color:#F5F5F5;
+	border: 1px solid #BFE5FD;
+	margin:0 auto;
+	margin-right: 20px;
+	margin-top: 10px;
+
+}
+.order-state{
+	float: right;
+	background-color: white;
+	border: 3px solid #BFE5FD;
+
+}
+.order-state span{
+	font-size: 20px;
+	color:  #01AFFE;
+    padding: 10px 5px;
+}
+.order-content{
+	float: right;
+	width: 600px;
+    margin-right: 20px;
+    border-bottom: 1px solid #BFE5FD;
+    border-left: 1px solid #BFE5FD;
+    border-right: 1px solid #BFE5FD;
+
+}
+.table {
+	float: right;
+	width: 600px;
+	margin-bottom: 20px;
+	margin: 0px auto;
+}
+.table th,.table td {
+	padding: 8px;
+	line-height: 20px;
+	text-align: left;
+	vertical-align: top;
+	color: #A5A5A5;
+}
+.table td span{
+    font-style: 微软雅黑;
+    font-size: 18px;
+    
+}
+
+
+.table th {
+	font-weight: bold;
+}
+
+.table thead th {
+	vertical-align: bottom
+}
+
+.table caption+thead tr:first-child th,.table caption+thead tr:first-child td,.table colgroup+thead tr:first-child th,.table colgroup+thead tr:first-child td,.table thead:first-child tr:first-child th,.table thead:first-child tr:first-child td {
+	border-top: 0
+}
+
+.table tbody+tbody {
+	border-top: 2px solid #ddd
+}
+
+.table-condensed th,.table-condensed td {
+	padding: 4px 5px
+}
+
+.table-bordered {
+	border: 1px solid #ddd;
+	border-collapse: separate;
+	*border-collapse: collapse;
+	border-left: 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px
+}
+
+.table-bordered th,.table-bordered td {
+	border-left: 1px solid #ddd
+}
+
+.table-bordered caption+thead tr:first-child th,.table-bordered caption+tbody tr:first-child th,.table-bordered caption+tbody tr:first-child td,.table-bordered colgroup+thead tr:first-child th,.table-bordered colgroup+tbody tr:first-child th,.table-bordered colgroup+tbody tr:first-child td,.table-bordered thead:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child th,.table-bordered tbody:first-child tr:first-child td {
+	border-top: 0
+}
+
+.table-bordered thead:first-child tr:first-child th:first-child,.table-bordered tbody:first-child tr:first-child td:first-child {
+	-webkit-border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
+	-moz-border-radius-topleft: 4px
+}
+
+.table-bordered thead:first-child tr:first-child th:last-child,.table-bordered tbody:first-child tr:first-child td:last-child {
+	-webkit-border-top-right-radius: 4px;
+	border-top-right-radius: 4px;
+	-moz-border-radius-topright: 4px
+}
+
+.table-bordered thead:last-child tr:last-child th:first-child,.table-bordered tbody:last-child tr:last-child td:first-child,.table-bordered tfoot:last-child tr:last-child td:first-child {
+	-webkit-border-radius: 0 0 0 4px;
+	-moz-border-radius: 0 0 0 4px;
+	border-radius: 0 0 0 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomleft: 4px
+}
+
+.table-bordered thead:last-child tr:last-child th:last-child,.table-bordered tbody:last-child tr:last-child td:last-child,.table-bordered tfoot:last-child tr:last-child td:last-child {
+	-webkit-border-bottom-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	-moz-border-radius-bottomright: 4px
+}
+
+.table-bordered caption+thead tr:first-child th:first-child,.table-bordered caption+tbody tr:first-child td:first-child,.table-bordered colgroup+thead tr:first-child th:first-child,.table-bordered colgroup+tbody tr:first-child td:first-child {
+	-webkit-border-top-left-radius: 4px;
+	border-top-left-radius: 4px;
+	-moz-border-radius-topleft: 4px
+}
+
+.table-bordered caption+thead tr:first-child th:last-child,.table-bordered caption+tbody tr:first-child td:last-child,.table-bordered colgroup+thead tr:first-child th:last-child,.table-bordered colgroup+tbody tr:first-child td:last-child {
+	-webkit-border-top-right-radius: 4px;
+	border-top-right-radius: 4px;
+	-moz-border-radius-topright: 4px
+}
+
+.table-striped tbody tr:nth-child(odd) td,.table-striped tbody tr:nth-child(odd) th {
+	background-color: #f9f9f9
+}
+
+.table-hover tbody tr:hover td,.table-hover tbody tr:hover th {
+	background-color: #f5f5f5
+}
+
+table td[class*="span"],table th[class*="span"],.row-fluid table td[class*="span"],.row-fluid table th[class*="span"] {
+	display: table-cell;
+	float: none;
+	margin-left: 0
+}
+
+.table td.span1,.table th.span1 {
+	float: none;
+	width: 44px;
+	margin-left: 0
+}
+
+.table td.span2,.table th.span2 {
+	float: none;
+	width: 124px;
+	margin-left: 0
+}
+
+.table td.span3,.table th.span3 {
+	float: none;
+	width: 204px;
+	margin-left: 0
+}
+
+.table td.span4,.table th.span4 {
+	float: none;
+	width: 284px;
+	margin-left: 0
+}
+
+.table td.span5,.table th.span5 {
+	float: none;
+	width: 364px;
+	margin-left: 0
+}
+
+.table td.span6,.table th.span6 {
+	float: none;
+	width: 444px;
+	margin-left: 0
+}
+
+.table td.span7,.table th.span7 {
+	float: none;
+	width: 524px;
+	margin-left: 0
+}
+
+.table td.span8,.table th.span8 {
+	float: none;
+	width: 604px;
+	margin-left: 0
+}
+
+.table td.span9,.table th.span9 {
+	float: none;
+	width: 684px;
+	margin-left: 0
+}
+
+.table td.span10,.table th.span10 {
+	float: none;
+	width: 764px;
+	margin-left: 0
+}
+
+.table td.span11,.table th.span11 {
+	float: none;
+	width: 844px;
+	margin-left: 0
+}
+
+.table td.span12,.table th.span12 {
+	float: none;
+	width: 924px;
+	margin-left: 0
+}
+
+.table tbody tr.success td {
+	background-color: #dff0d8
+}
+
+.table tbody tr.error td {
+	background-color: #f2dede
+}
+
+.table tbody tr.warning td {
+	background-color: #fcf8e3
+}
+
+.table tbody tr.info td {
+	background-color: #d9edf7
+}
+
+.table-hover tbody tr.success:hover td {
+	background-color: #d0e9c6
+}
+
+.table-hover tbody tr.error:hover td {
+	background-color: #ebcccc
+}
+
+.table-hover tbody tr.warning:hover td {
+	background-color: #faf2cc
+}
+

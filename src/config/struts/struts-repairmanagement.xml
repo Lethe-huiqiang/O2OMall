@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+		
+	<package name="repairmanagement-front" extends="jixie-front" >
+		<action name="repairmanagement_login" class="RepairManagementAction" method="login" />
+	</package>
+
+	<package name="repairmanagement" extends="jixie-default">
+		
+		<action name="repairmanagement_*" class="RepairManagementAction" method="{1}">
+			<!-- 跳转到用户的登陆页面 -->
+			<result name="login">/frontStage/users/jsp/login.jsp
+			</result>
+			
+			<result name="list">/frontStage/repairclaim/mana/menu2/repairmanagement.jsp
+			</result>
+			
+			<!-- <result name="nextpage">/frontStage/repairclaim/jsp/repairmanagement.jsp
+			</result> -->
+			
+			<result name="repairmanagement">/frontStage/repairclaim/mana/menu1/repsummary.jsp
+			</result>
+			
+			<result name="repairdo">/frontStage/repairclaim/mana/menu1/repair-do.jsp
+			</result>
+			
+			<result name="showleave">/frontStage/repairclaim/mana/menu1/leavewords.jsp
+			</result>
+			
+			<result name="achievement">/frontStage/repairclaim/mana/menu2/achieve.jsp
+			</result>
+			
+			<result name="memcomment">/frontStage/repairclaim/mana/menu1/memcomment.jsp
+			</result>
+			
+			<result name="bosscomment">/frontStage/repairclaim/mana/menu2/bosscomment.jsp
+			</result>
+		</action>
+		
+	</package>
+		
+
+</struts>

@@ -1,0 +1,45 @@
+package com.jixie.action.mall;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
+import net.sf.json.JSONObject;
+
+import com.jixie.action.BaseAction;
+import com.jixie.action.users.UsersHelper;
+import com.jixie.bean.FileSource;
+import com.jixie.bean.Users;
+import com.jixie.bean.UsersInfo;
+import com.jixie.utils.MallManageUtil;
+
+public class UserCenterAction extends BaseAction{
+
+	
+	public void showUserInfo(){
+		 HttpServletResponse response=ServletActionContext.getResponse();
+		try {
+			Users users = UsersHelper.getUsersFromSession();
+			if (users != null) {	
+				UsersInfo usersInfo = commonService.findById(users.getId(), new UsersInfo());
+				FileSource fs = commonService.findById(usersInfo.getPictureId(), new FileSource());
+				usersInfo.setFileSource(fs);
+				JSONObject usersInfoJson = JSONObject.fromObject(usersInfo);//将java对象转换为json对象 
+				
+					JSONObject result=new JSONObject();
+					//转换成json数组
+					result.put("usersInfo", usersInfoJson);
+					MallManageUtil.write(response, result);
+			
+			} else {
+				// 如果没有登录返回登录页面
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

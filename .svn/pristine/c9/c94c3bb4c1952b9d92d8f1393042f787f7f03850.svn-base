@@ -1,0 +1,67 @@
+package com.jixie.action.users;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.jixie.action.BaseAction;
+import com.jixie.bean.Users;
+import com.opensymphony.xwork2.ActionContext;
+
+public class UsersManagement extends BaseAction{
+
+	private String usersId;
+	
+	public String listUsers(){
+		
+		String hql = "from Users users  order by users.creTime";
+		List<Users> list = commonService.findListByHQL(hql);
+		//ActionContext.getContext().getContextMap().put("usersList", list);
+		ActionContext ctx = ActionContext.getContext();
+		Map<String, Object> request = (Map<String, Object>) ctx.get("request");
+		request.put("usersList", list);
+		return "usersList";
+	}
+	
+	//会员管理列表
+	public String manageUsersList(){
+		
+		String hql = "from Users users where users.status <> 1 order by users.creTime";
+		List<Users> list = commonService.findListByHQL(hql);
+		//ActionContext.getContext().getContextMap().put("usersList", list);
+		ActionContext ctx = ActionContext.getContext();
+		Map<String, Object> request = (Map<String, Object>) ctx.get("request");
+		request.put("usersList", list);
+		return "manageUsersList";
+	}
+	
+	//会员拉黑
+	public void limitingUsers(){
+		
+		Users users = commonService.findById(usersId, new Users());
+		users.setStatus(1);
+		try{
+			commonService.saveOrUpdate(users);
+			this.sendMsgAjax("success", "utf-8");
+		}catch(Exception e){
+			e.printStackTrace();
+			try {
+				this.sendMsgAjax("fail", "utf-8");
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+
+	public String getUsersId() {
+		return usersId;
+	}
+
+	public void setUsersId(String usersId) {
+		this.usersId = usersId;
+	}
+
+
+}
