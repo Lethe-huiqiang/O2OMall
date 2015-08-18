@@ -1,8 +1,0 @@
-  $(function(){
-    	   var user='<%=session.getAttribute("users")%>';	  
-           if(user!=null&''){
- 					$('.nav-wel a').hide();					
-               }else{
-					$('#userName').hide();
-                   }
-        });
